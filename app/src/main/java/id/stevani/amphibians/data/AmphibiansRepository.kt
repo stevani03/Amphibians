@@ -1,7 +1,7 @@
-package id.febimaharani.amphibians.data
+package id.stevani.amphibians.data
 
-import id.febimaharani.amphibians.model.Amphibian
-import id.febimaharani.amphibians.network.AmphibiansApiService
+import id.stevani.amphibians.model.Amphibian
+import id.stevani.amphibians.network.AmphibiansApiService
 
 /**
  * Repository retrieves amphibian data from underlying data source.

@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "id.febimaharani.amphibians"
+    namespace = "id.stevani.amphibians"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "id.febimaharani.amphibians"
+        applicationId = "id.stevani.amphibians"
         minSdk = 26
         targetSdk = 33
         versionCode = 1

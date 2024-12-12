@@ -1,4 +1,4 @@
-package id.febimaharani.amphibians.ui.theme
+package id.stevani.amphibians.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

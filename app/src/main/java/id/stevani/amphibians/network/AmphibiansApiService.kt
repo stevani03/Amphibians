@@ -1,6 +1,6 @@
-package id.febimaharani.amphibians.network
+package id.stevani.amphibians.network
 
-import id.febimaharani.amphibians.model.Amphibian
+import id.stevani.amphibians.model.Amphibian
 import retrofit2.http.GET
 
 interface AmphibiansApiService {

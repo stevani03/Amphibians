@@ -1,4 +1,4 @@
-package id.febimaharani.amphibians.ui.screens
+package id.stevani.amphibians.ui.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -29,9 +29,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import id.febimaharani.amphibians.R
-import id.febimaharani.amphibians.model.Amphibian
-import id.febimaharani.amphibians.ui.theme.AmphibiansTheme
+import id.stevani.amphibians.R
+import id.stevani.amphibians.model.Amphibian
+import id.stevani.amphibians.ui.theme.AmphibiansTheme
 
 @Composable
 fun HomeScreen(

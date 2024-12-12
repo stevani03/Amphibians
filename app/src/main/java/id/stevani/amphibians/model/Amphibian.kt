@@ -1,4 +1,4 @@
-package id.febimaharani.amphibians.model
+package id.stevani.amphibians.model
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

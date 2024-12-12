@@ -1,8 +1,8 @@
-package id.febimaharani.amphibians
+package id.stevani.amphibians
 
 import android.app.Application
-import id.febimaharani.amphibians.data.AppContainer
-import id.febimaharani.amphibians.data.DefaultAppContainer
+import id.stevani.amphibians.data.AppContainer
+import id.stevani.amphibians.data.DefaultAppContainer
 
 class AmphibiansApplication : Application() {
     /** AppContainer instance used by the rest of classes to obtain dependencies */

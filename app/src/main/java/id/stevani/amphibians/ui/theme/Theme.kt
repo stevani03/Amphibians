@@ -1,4 +1,4 @@
-package id.febimaharani.amphibians.ui.theme
+package id.stevani.amphibians.ui.theme
 
 import android.app.Activity
 import android.os.Build

@@ -1,4 +1,4 @@
-package id.febimaharani.amphibians
+package id.stevani.amphibians
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -7,8 +7,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import id.febimaharani.amphibians.ui.AmphibiansApp
-import id.febimaharani.amphibians.ui.theme.AmphibiansTheme
+import id.stevani.amphibians.ui.AmphibiansApp
+import id.stevani.amphibians.ui.theme.AmphibiansTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

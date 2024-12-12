@@ -1,6 +1,6 @@
-package id.febimaharani.amphibians.data
+package id.stevani.amphibians.data
 
-import id.febimaharani.amphibians.network.AmphibiansApiService
+import id.stevani.amphibians.network.AmphibiansApiService
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType

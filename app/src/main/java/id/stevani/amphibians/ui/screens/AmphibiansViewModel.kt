@@ -1,4 +1,4 @@
-package id.febimaharani.amphibians.ui.screens
+package id.stevani.amphibians.ui.screens
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -8,9 +8,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
-import id.febimaharani.amphibians.AmphibiansApplication
-import id.febimaharani.amphibians.data.AmphibiansRepository
-import id.febimaharani.amphibians.model.Amphibian
+import id.stevani.amphibians.AmphibiansApplication
+import id.stevani.amphibians.data.AmphibiansRepository
+import id.stevani.amphibians.model.Amphibian
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException

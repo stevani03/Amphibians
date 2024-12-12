@@ -1,4 +1,4 @@
-package id.febimaharani.amphibians.ui
+package id.stevani.amphibians.ui
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -11,9 +11,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
-import id.febimaharani.amphibians.R
-import id.febimaharani.amphibians.ui.screens.AmphibiansViewModel
-import id.febimaharani.amphibians.ui.screens.HomeScreen
+import id.stevani.amphibians.R
+import id.stevani.amphibians.ui.screens.AmphibiansViewModel
+import id.stevani.amphibians.ui.screens.HomeScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
