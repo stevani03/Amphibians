@@ -3,20 +3,20 @@ package id.stevani.amphibians.data
 import id.stevani.amphibians.model.Amphibian
 import id.stevani.amphibians.network.AmphibiansApiService
 
-/**
- * Repository retrieves amphibian data from underlying data source.
- */
+// Interface yang mendefinisikan kontrak untuk repository Amphibians.
+// Repository bertugas menyediakan data, baik dari jaringan, database, atau sumber lainnya.
 interface AmphibiansRepository {
-    /** Retrieves list of amphibians from underlying data source */
+    
+    // Suspend berarti fungsi ini dirancang untuk dipanggil dalam coroutine.
     suspend fun getAmphibians(): List<Amphibian>
 }
 
-/**
- * Network Implementation of repository that retrieves amphibian data from underlying data source.
- */
+// Menggunakan AmphibiansApiService untuk mendapatkan data dari jaringan.
 class DefaultAmphibiansRepository(
-    private val amphibiansApiService: AmphibiansApiService
+    private val amphibiansApiService: AmphibiansApiService // Dependency injection untuk layanan API.
 ) : AmphibiansRepository {
-    /** Retrieves list of amphibians from underlying data source */
+    
+    // Fungsi ini memanggil API secara langsung melalui AmphibiansApiService.
     override suspend fun getAmphibians(): List<Amphibian> = amphibiansApiService.getAmphibians()
 }
+
