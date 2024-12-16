@@ -19,29 +19,34 @@ import id.stevani.amphibians.ui.screens.HomeScreen
 @Composable
 fun AmphibiansApp() {
     Scaffold(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize(), // Mengatur Scaffold agar mengambil seluruh ukuran layar.
         topBar = {
+            // TopAppBar menampilkan judul aplikasi di bagian atas layar.
             TopAppBar(
                 title = {
                     Text(
-                        stringResource(R.string.app_name),
-                        style = MaterialTheme.typography.headlineMedium
+                        stringResource(R.string.app_name), // Menampilkan nama aplikasi dari string resource.
+                        style = MaterialTheme.typography.headlineMedium // Menentukan gaya teks untuk judul.
                     )
                 }
             )
         }
     ) {
+        // Surface adalah pembungkus untuk area konten yang memberikan latar belakang sesuai dengan tema.
         Surface(
-            modifier = Modifier.fillMaxSize(),
-            color = MaterialTheme.colorScheme.background
+            modifier = Modifier.fillMaxSize(), // Mengatur Surface agar mengisi seluruh layar.
+            color = MaterialTheme.colorScheme.background // Menggunakan warna latar belakang yang sesuai dengan tema aplikasi.
         ) {
+            // Membuat instance ViewModel untuk mengelola state UI dari data amphibians.
             val amphibiansViewModel: AmphibiansViewModel =
-                viewModel(factory = AmphibiansViewModel.Factory)
+                viewModel(factory = AmphibiansViewModel.Factory) // Menggunakan ViewModel dengan Factory.
+
+            // Menyediakan HomeScreen yang menerima state UI dari ViewModel dan fungsi untuk mencoba lagi.
             HomeScreen(
-                amphibiansUiState = amphibiansViewModel.amphibiansUiState,
-                retryAction = amphibiansViewModel::getAmphibians,
-                modifier = Modifier.fillMaxSize(),
-                contentPadding = it
+                amphibiansUiState = amphibiansViewModel.amphibiansUiState, // State UI yang diobservasi oleh HomeScreen.
+                retryAction = amphibiansViewModel::getAmphibians, // Fungsi untuk mendapatkan data amphibians jika terjadi kesalahan.
+                modifier = Modifier.fillMaxSize(), // Mengatur agar HomeScreen mengisi seluruh layar.
+                contentPadding = it // Padding yang berasal dari Scaffold untuk konten.
             )
         }
     }
