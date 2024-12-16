@@ -35,53 +35,57 @@ import id.stevani.amphibians.ui.theme.AmphibiansTheme
 
 @Composable
 fun HomeScreen(
-    amphibiansUiState: AmphibiansUiState,
-    retryAction: () -> Unit,
-    modifier: Modifier = Modifier,
-    contentPadding: PaddingValues = PaddingValues(0.dp)
+    amphibiansUiState: AmphibiansUiState, // Status UI yang diterima, bisa Loading, Success, atau Error.
+    retryAction: () -> Unit, // Fungsi yang dipanggil saat pengguna ingin mencoba ulang (retry) untuk memuat data.
+    modifier: Modifier = Modifier, // Modifier untuk menyesuaikan tampilan (default: Modifier).
+    contentPadding: PaddingValues = PaddingValues(0.dp) // Padding untuk konten (default: tanpa padding).
 ) {
+    // Menentukan tampilan berdasarkan status UI.
     when (amphibiansUiState) {
-        is AmphibiansUiState.Loading -> LoadingScreen(modifier.size(200.dp))
+        is AmphibiansUiState.Loading -> 
+            LoadingScreen(modifier.size(200.dp)) // Menampilkan tampilan loading dengan ukuran 200dp.
+        
         is AmphibiansUiState.Success ->
             AmphibiansListScreen(
-                amphibians = amphibiansUiState.amphibians,
+                amphibians = amphibiansUiState.amphibians, // Menampilkan daftar amfibi yang berhasil dimuat.
                 modifier = modifier
                     .padding(
                         start = dimensionResource(R.dimen.padding_medium),
                         top = dimensionResource(R.dimen.padding_medium),
                         end = dimensionResource(R.dimen.padding_medium)
                     ),
-                contentPadding = contentPadding
+                contentPadding = contentPadding // Padding tambahan untuk konten.
             )
-        else -> ErrorScreen(retryAction, modifier)
+        
+        else -> 
+            ErrorScreen(retryAction, modifier) // Menampilkan layar error jika gagal memuat data.
     }
 }
 
-/**
- * The home screen displaying the loading message.
- */
+// Tampilan loading yang menunjukkan gambar animasi atau gambar loading.
 @Composable
 fun LoadingScreen(modifier: Modifier = Modifier) {
     Image(
-        painter = painterResource(R.drawable.loading_img),
-        contentDescription = stringResource(R.string.loading),
-        modifier = modifier
+        painter = painterResource(R.drawable.loading_img), // Menampilkan gambar loading dari resource.
+        contentDescription = stringResource(R.string.loading), // Deskripsi gambar untuk aksesibilitas.
+        modifier = modifier // Menyesuaikan modifier yang diterima.
     )
 }
 
-/**
- * The home screen displaying error message with re-attempt button.
- */
+// Tampilan error yang meminta pengguna untuk mencoba ulang.
 @Composable
 fun ErrorScreen(retryAction: () -> Unit, modifier: Modifier = Modifier) {
     Column(
-        modifier = modifier,
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+        modifier = modifier, // Modifier yang diterima untuk menyesuaikan tampilan.
+        verticalArrangement = Arrangement.Center, // Menyusun elemen secara vertikal di tengah.
+        horizontalAlignment = Alignment.CenterHorizontally // Menyusun elemen secara horizontal di tengah.
     ) {
+        // Menampilkan pesan kesalahan.
         Text(stringResource(R.string.loading_failed))
+        
+        // Tombol untuk mencoba ulang jika terjadi kesalahan.
         Button(onClick = retryAction) {
-            Text(stringResource(R.string.retry))
+            Text(stringResource(R.string.retry)) // Label tombol retry.
         }
     }
 }
@@ -103,22 +107,24 @@ fun AmphibianCard(amphibian: Amphibian, modifier: Modifier = Modifier) {
                 textAlign = TextAlign.Start
             )
             AsyncImage(
-                modifier = Modifier.fillMaxWidth(),
-                model = ImageRequest.Builder(context = LocalContext.current)
-                    .data(amphibian.imgSrc)
-                    .crossfade(true)
-                    .build(),
-                contentDescription = null,
-                contentScale = ContentScale.FillWidth,
-                error = painterResource(id = R.drawable.ic_broken_image),
-                placeholder = painterResource(id = R.drawable.loading_img)
+            modifier = Modifier.fillMaxWidth(), // Mengatur gambar untuk mengisi lebar layar
+            model = ImageRequest.Builder(context = LocalContext.current) // Membuat permintaan gambar menggunakan ImageRequest
+            .data(amphibian.imgSrc) // URL atau sumber gambar yang akan dimuat
+            .crossfade(true) // Mengaktifkan efek transisi saat gambar dimuat
+            .build(), // Membangun permintaan gambar
+            contentDescription = null, // Deskripsi konten untuk aksesibilitas (null karena gambar ini tidak memerlukan deskripsi)
+            contentScale = ContentScale.FillWidth, // Mengatur agar gambar mengisi lebar layar dan proporsional secara horizontal
+            error = painterResource(id = R.drawable.ic_broken_image), // Gambar yang ditampilkan jika terjadi kesalahan (gambar rusak)
+            placeholder = painterResource(id = R.drawable.loading_img) // Gambar yang ditampilkan saat gambar sedang dimuat (gambar loading)
             )
+            
             Text(
-                text = amphibian.description,
-                style = MaterialTheme.typography.titleMedium,
-                textAlign = TextAlign.Justify,
-                modifier = Modifier.padding(dimensionResource(R.dimen.padding_medium))
+                text = amphibian.description, // Teks deskripsi amfibi yang ditampilkan
+                style = MaterialTheme.typography.titleMedium, // Gaya teks yang digunakan untuk menampilkan deskripsi
+                textAlign = TextAlign.Justify, // Menyusun teks agar rata kiri-kanan
+                modifier = Modifier.padding(dimensionResource(R.dimen.padding_medium)) // Padding untuk memberi jarak antara teks dan batas layar
             )
+
         }
     }
 }
